@@ -1,0 +1,15 @@
+version: 1.0.{build}
+skip_tags: true
+image: Visual Studio 2017
+init:
+- ps: 
+environment:
+# defines env variables used in the build
+  ProductVersion: '1.0.0%'
+  SignOutput: False # appveyor doesnt sign the build, just runs the tests
+configuration:
+  - Travis
+build:
+  verbosity: normal
+on_finish:
+  - ps: 
